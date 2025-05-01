@@ -1,14 +1,14 @@
 from fastapi import FastAPI
-from typing import Optional
-from pydantic import BaseModel
 
 app = FastAPI()
-
-class Item(BaseModel):
-    name: str
-    description: Optional[str] = None
-    price: float
-
+app.title = "LinguaFlow API"
+app.description = "API for LinguaFlow, a Machine Learning based Translator."
+app.version = "0.1.0"
+app.license_info = {
+    "name": "MIT",
+    "url": "https://opensource.org/licenses/MIT",
+}
+app.include_router()
 
 @app.get("/")
 async def root():
