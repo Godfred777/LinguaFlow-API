@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from .translations.routes import router as translations_router
 
 app = FastAPI()
 app.title = "LinguaFlow API"
@@ -8,7 +9,7 @@ app.license_info = {
     "name": "MIT",
     "url": "https://opensource.org/licenses/MIT",
 }
-app.include_router()
+app.include_router(translations_router, prefix="/translations", tags=["translations"])
 
 @app.get("/")
 async def root():
